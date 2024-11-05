@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getSingleArticle } from "../api/api.js"
 
-import {useParams} from 'react-router-dom';
+import Comments from '../Components/Comments.jsx'
 
+import {useParams} from 'react-router-dom';
 
 export default function SingleArticle(){
     const {article_id} = useParams();
@@ -38,6 +39,7 @@ export default function SingleArticle(){
     }
 
     return    (   
+        <>
         <div id="article-display" className = "single-article">
             <div>
                 <h3>{article.title}</h3>
@@ -46,9 +48,16 @@ export default function SingleArticle(){
                     <p>Topic: {article.topic}</p>
                 </div>
                 <div id="article-body" className = "article-body">
-                <p>{article.body}</p>
+                    <p>{article.body}</p>
                 </div>
             </div>
         </div>
+        <div id="comments-list" className = "list-container">
+            <div>
+                <Comments article_id={article_id}/>
+            </div>
+        </div>
+     </>
+    
     )
 }
