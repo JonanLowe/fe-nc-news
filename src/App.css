@@ -74,6 +74,19 @@
   text-align: left;
 }
 
+.vote-display{
+  display: flex;
+  justify-content: right;
+}
+
+.vote-text{
+  margin-right: 10px;
+}
+
+.vote-button{
+ margin-left: 10px;
+}
+
 ul {
   padding: 0;
   list-style-type: none;

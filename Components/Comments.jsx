@@ -6,7 +6,6 @@ import CommentCard from "./CommentCard.jsx";
 export default function fetchComments(){
 
     const {article_id} = useParams();
-    console.log (article_id, "<<article_id")
 
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
