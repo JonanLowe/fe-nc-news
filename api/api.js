@@ -5,8 +5,7 @@ const api = axios.create({
 });
 
 export function getAllArticles() {
-  return api.get("/articles").then(({ data }) => {
-    console.log(data.articles);
-    return data.articles;
+  return api.get("/articles").then(({ response }) => {
+    return response.articles;
   });
 }
