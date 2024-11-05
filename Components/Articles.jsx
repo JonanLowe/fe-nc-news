@@ -4,8 +4,6 @@ import ArticleCard from "./ArticleCard.jsx";
 
 export default function Articles(){
     const [articles, setArticles] = useState([]);
-
-    const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=>{
@@ -22,14 +20,14 @@ export default function Articles(){
         </li>);
 
     if (isLoading) {
-        return <p>loading...</p>;
+        return <p>loading all articles...</p>;
     }
 
     return    (   
         <div className = "list-container" id="all_articles_list">
             <h2>All articles:</h2>
-            <ul className="articles-list">
-                {articlesList}
+            <ul>
+            {articlesList}
             </ul>
         </div>
     )

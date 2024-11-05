@@ -6,7 +6,12 @@ const api = axios.create({
 
 export function getAllArticles() {
   return api.get("/articles").then(({ data }) => {
-    console.log(data.articles);
     return data.articles;
+  });
+}
+
+export function getSingleArticle(id) {
+  return api.get(`/articles/${id}`).then(({ data }) => {
+    return data.article;
   });
 }
