@@ -15,3 +15,9 @@ export function getSingleArticle(id) {
     return data.article;
   });
 }
+
+export function getCommentsByArticleId(id) {
+  return api.get(`/articles/${id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+}

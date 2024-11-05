@@ -1,6 +1,6 @@
 #root {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1920px;
   margin: auto;
   text-align: center; 
 }
@@ -34,6 +34,7 @@
 }
 
 .list-container{
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -41,6 +42,12 @@
 .article-card {
   padding: 1rem 4rem;
   border: 1px solid black
+}
+
+.comment-card {
+  text-align: left;
+  padding: 1rem 4rem;
+  border: 1px solid rgb(219, 219, 219)
 }
 
 .welcome-page{
