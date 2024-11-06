@@ -3,6 +3,7 @@
   max-width: 1920px;
   margin: auto;
   text-align: center; 
+  font-family: sans-serif;
 }
 
 .sticky-top{
@@ -18,7 +19,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: red;
-  font-family: sans-serif;
+  
 }
 
 .nav{
@@ -63,6 +64,39 @@
   border: 1px solid black;
 }
 
+.comment-header{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+
+.comment-form{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.username-box{
+  border: 2px solid black;
+  margin-bottom: 10px;
+  align-content: center;
+}
+
+.comment-box{
+  border: 2px solid black;
+  margin-bottom: 10px;
+  padding: 10px;
+  height: 120px;
+}
+
+::placeholder{
+  font-family: sans-serif;
+  font-size: medium;
+}
+
 .article-properties{
   display: flex;
   flex-wrap: wrap;
@@ -96,15 +130,13 @@
   margin-left: 10px;
  }
  
-
-
-
 ul {
   padding: 0;
   list-style-type: none;
 }
 
-
-
+#submit-comment{
+width: 200px;
+}
 
 

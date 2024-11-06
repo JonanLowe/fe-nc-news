@@ -14,7 +14,7 @@ export default function SingleArticle(){
     const [localVotes, setLocalVotes] = useState(0);
 
     const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(null);
+    const [isError, setIsError] = useState(false);
     const [isVoteError, setIsVoteError] = useState(false);
     const [hasUpvoted, setHasUpvoted] = useState(false);
     const [hasDownvoted, setHasDownvoted] = useState(false);
@@ -24,7 +24,6 @@ export default function SingleArticle(){
         setIsLoading(true);
         getSingleArticle(article_id).then((article) => {
             setIsLoading(false);
-            setIsError(false);
             setArticle(article);
             setLocalVotes(article.votes)
         })
@@ -61,18 +60,19 @@ export default function SingleArticle(){
     function UpvoteButton(){
         return  <button id="increase-vote" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, 1); setHasUpvoted(true)}}>VOTE +</button>
     }
-
+        
     function WithdrawUpvoteButton(){
         return  <button id="withdraw-upvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, -1); setHasUpvoted(false)}}>Cancel Vote</button>
     }
-  
+        
     function DownvoteButton(){
         return  <button id="decrease-votes" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, -1); setHasDownvoted(true)}}>VOTE -</button>
     }
-
+        
     function WithdrawDownvoteButton(){
         return  <button id="withdraw-downvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, 1); setHasDownvoted(false)}}>Cancel Vote</button>
     }
+
 
     return    (   
         <>
@@ -86,7 +86,7 @@ export default function SingleArticle(){
                     <p>{article.body}</p>
                 </div>
                 <div className = "vote-display">
-                    <p className = "vote-text"> {isVoteError? "Sorry - there is an error with voting, please refresh your page" :`VOTES: ${localVotes}`}</p>
+                    <p className = "vote-text"> {isVoteError ? "Sorry - there is an error with voting, please refresh your page" :`VOTES: ${localVotes}`}</p>
                     {hasUpvoted ? <WithdrawUpvoteButton/> : <UpvoteButton/>}
                     {hasDownvoted ? <WithdrawDownvoteButton/> : <DownvoteButton/>}
                 </div>
