@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 const api = axios.create({
   baseURL: "https://nc-news-c2tj.onrender.com/api/",
@@ -25,8 +24,9 @@ export function getCommentsByArticleId(id) {
 
 export function patchVoteCount(id, vote) {
   return api
-    .patch(`/articles/${id}/`, { inc_votes: Number(vote) })
-    .then(({ data }) => {
-      console.log(data);
+    .patch(`/articles/${id}/`, { inc_votes: vote }).then(({data} ) => {
+      return data.article.votes;})
+    .catch((err) => {
+      return err
     });
 }

@@ -84,29 +84,26 @@
 }
 
 .vote-button{
+  width: 120px;
+  height: 60px;
  margin-left: 10px;
 }
+
+.pressed-vote-button{
+  background-color: rgb(185, 185, 185);
+  width: 120px;
+  height: 60px;
+  margin-left: 10px;
+ }
+ 
+
+
 
 ul {
   padding: 0;
   list-style-type: none;
 }
 
-:link {
-  color:rgb(53, 53, 53);
-}
-
-:visited {
-  color:rgb(0, 0, 0);
-}
-
-:hover {
-  color:rgb(0, 0, 0);
-}
-
-:active {
-  color:rgb(165, 165, 165);
-}
 
 
 
