@@ -34,17 +34,35 @@ export default function SingleArticle(){
     }, [article_id])
 
     function handleVote(id, vote){
-        {setLocalVotes(localVotes + vote)}
+            setLocalVotes(localVotes + vote)
             patchVoteCount(id, vote).then((response) => {
             if (response.votes){
             return setIsVoteError(false)
             }
             if(response.message){
+            setLocalVotes(article.votes)
             return setIsVoteError(true)
             }
             })
     }
   
+    
+    function UpvoteButton(){
+        return  <button id="increase-vote" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, 1); setHasUpvoted(true)}}>VOTE +</button>
+    }
+    
+    function WithdrawUpvoteButton(){
+        return  <button id="withdraw-upvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, -1); setHasUpvoted(false)}}>Cancel Vote</button>
+    }
+    
+    function DownvoteButton(){
+        return  <button id="decrease-votes" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, -1); setHasDownvoted(true)}}>VOTE -</button>
+    }
+    
+    function WithdrawDownvoteButton(){
+        return  <button id="withdraw-downvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, 1); setHasDownvoted(false)}}>Cancel Vote</button>
+    }
+    
     if (isError) {
         return <>
         <p>{errorMsg}</p>
@@ -56,24 +74,7 @@ export default function SingleArticle(){
         <p>loading...</p>
         </>
     }
-
-    function UpvoteButton(){
-        return  <button id="increase-vote" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, 1); setHasUpvoted(true)}}>VOTE +</button>
-    }
-        
-    function WithdrawUpvoteButton(){
-        return  <button id="withdraw-upvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, -1); setHasUpvoted(false)}}>Cancel Vote</button>
-    }
-        
-    function DownvoteButton(){
-        return  <button id="decrease-votes" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, -1); setHasDownvoted(true)}}>VOTE -</button>
-    }
-        
-    function WithdrawDownvoteButton(){
-        return  <button id="withdraw-downvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, 1); setHasDownvoted(false)}}>Cancel Vote</button>
-    }
-
-
+    
     return    (   
         <>
         <div id="article-display" className = "single-article">
