@@ -21,3 +21,12 @@ export function getCommentsByArticleId(id) {
     return data.comments;
   });
 }
+
+export function patchVoteCount(id, vote) {
+  return api
+    .patch(`/articles/${id}/`, { inc_votes: vote }).then(({data} ) => {
+      return data.article.votes;})
+    .catch((err) => {
+      return err
+    });
+}
