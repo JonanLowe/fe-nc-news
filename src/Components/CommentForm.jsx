@@ -58,7 +58,7 @@ export default function CommentForm(props){
         />
         <div id = "comment-submit-section">
         <h3>All comments for this article:</h3>
-        <button id="submit-comment" onClick={() => {handleNewComment(article_id, userName, newComment)}}> Submit Comment </button>
+        <button id="submit-comment" disabled = {newComment.length <1} onClick={() => {handleNewComment(article_id, userName, newComment)}}> Submit Comment </button>
         </div>
     </section> 
     )
