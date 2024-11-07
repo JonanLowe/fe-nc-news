@@ -52,7 +52,6 @@ export default function SingleArticle(){
         return  <button id="increase-vote" disabled= {isVoteError || hasUpvoted} className = "vote-button" onClick={() => {handleVote(article_id, 1); setHasUpvoted(true); setHasDownvoted(false)}}>VOTE +</button>
     }
     
-    
     function DownvoteButton(){
         return  <button id="decrease-votes" disabled= {isVoteError || hasDownvoted} className = "vote-button" onClick={() => {handleVote(article_id, -1); setHasDownvoted(true); setHasUpvoted(false)}}>VOTE -</button>
     }
