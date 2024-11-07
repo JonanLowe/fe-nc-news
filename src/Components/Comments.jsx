@@ -1,7 +1,9 @@
 import { useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 import { getCommentsByArticleId } from "../api/api.js"
+
 import CommentCard from "./CommentCard.jsx";
+import CommentForm from "./CommentForm.jsx"
 
 export default function fetchComments(){
 
@@ -9,6 +11,13 @@ export default function fetchComments(){
 
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+
+    function addComment(newComment){
+        setComments(currentComments => {
+            return [newComment, ...currentComments]
+        })
+    }
 
     useEffect(()=>{
         setIsLoading(true);
@@ -16,7 +25,17 @@ export default function fetchComments(){
             setIsLoading(false);
             setComments(comments);
         })
+        .catch((err)=>{
+            setIsError(true)
+            setErrorMsg(err.message)
+        })
     }, [])
+
+    if (isError) {
+        return <>
+        <p>{errorMsg}</p>
+        </>
+    }
 
     if (isLoading) {
         return <p>loading comments...</p>;
@@ -27,10 +46,11 @@ export default function fetchComments(){
             <CommentCard author = {comment.author} body = {comment.body}/>
         </li>);
 
-
-    return    (   
-        <div id="comments_list" className = "list-container" >
-            <h3>All comments for this article:</h3>
+    return  (   
+        <div id="comments_list">
+            <div className = "comment-header">
+            </div>
+            <CommentForm article_id = {article_id} addComment={addComment}/>
             <ul>
             {commentsList}
             </ul>
