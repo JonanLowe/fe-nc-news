@@ -49,19 +49,12 @@ export default function SingleArticle(){
   
     
     function UpvoteButton(){
-        return  <button id="increase-vote" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, 1); setHasUpvoted(true)}}>VOTE +</button>
+        return  <button id="increase-vote" disabled= {isVoteError || hasUpvoted} className = "vote-button" onClick={() => {handleVote(article_id, 1); setHasUpvoted(true); setHasDownvoted(false)}}>VOTE +</button>
     }
     
-    function WithdrawUpvoteButton(){
-        return  <button id="withdraw-upvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, -1); setHasUpvoted(false)}}>Cancel Vote</button>
-    }
     
     function DownvoteButton(){
-        return  <button id="decrease-votes" disabled= {isVoteError} className = "vote-button" onClick={() => {handleVote(article_id, -1); setHasDownvoted(true)}}>VOTE -</button>
-    }
-    
-    function WithdrawDownvoteButton(){
-        return  <button id="withdraw-downvote" disabled= {isVoteError} className = "pressed-vote-button" onClick={() => {handleVote(article_id, 1); setHasDownvoted(false)}}>Cancel Vote</button>
+        return  <button id="decrease-votes" disabled= {isVoteError || hasDownvoted} className = "vote-button" onClick={() => {handleVote(article_id, -1); setHasDownvoted(true); setHasUpvoted(false)}}>VOTE -</button>
     }
     
     if (isError) {
@@ -89,8 +82,8 @@ export default function SingleArticle(){
                 </div>
                 <div className = "vote-display">
                     <p className = "vote-text"> {isVoteError ? "Sorry - there is an error with voting, please refresh your page" :`VOTES: ${localVotes}`}</p>
-                    {hasUpvoted ? <WithdrawUpvoteButton/> : <UpvoteButton/>}
-                    {hasDownvoted ? <WithdrawDownvoteButton/> : <DownvoteButton/>}
+                    <UpvoteButton/>
+                    <DownvoteButton/>
                 </div>
         </div>
         <div id="comments-list" className = "list-container">
