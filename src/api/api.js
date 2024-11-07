@@ -24,9 +24,22 @@ export function getCommentsByArticleId(id) {
 
 export function patchVoteCount(id, vote) {
   return api
-    .patch(`/articles/${id}/`, { inc_votes: vote }).then(({data} ) => {
-      return data.article.votes;})
+    .patch(`/articles/${id}/`, { inc_votes: vote })
+    .then(({ data }) => {
+      return data.article;
+    })
     .catch((err) => {
-      return err
+      return err;
+    });
+}
+
+export function postCommentByArticleId(id, user, newComment) {
+  return api
+    .post(`/articles/${id}/comments`, { username: user, comment: newComment })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      return err;
     });
 }

@@ -36,12 +36,13 @@ export default function SingleArticle(){
     function handleVote(id, vote){
             setLocalVotes(localVotes + vote)
             patchVoteCount(id, vote).then((response) => {
+
             if (response.votes){
-            return setIsVoteError(false)
+            setIsVoteError(false)
             }
             if(response.message){
             setLocalVotes(article.votes)
-            return setIsVoteError(true)
+            setIsVoteError(true)
             }
             })
     }

@@ -1,7 +1,9 @@
 import { useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 import { getCommentsByArticleId } from "../api/api.js"
+
 import CommentCard from "./CommentCard.jsx";
+import CommentForm from "./CommentForm.jsx"
 
 export default function fetchComments(){
 
@@ -11,20 +13,11 @@ export default function fetchComments(){
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
-    const [newComment, setNewComment] = useState(false);
-
-    // state: want to comment
-    // conditionally renders a newComment form
-
-    // new comment form: username (box), post (button)
-    ////                    COMMENT
-
-    // optimistically renders on submit (commentList.push       
-    //  <li key={comment.comment_id}>
-            // <CommentCard author = {comment.author} body = {comment.body}/>
-            // </li>);)- form disappears, comment added to list
-
-    // then post request.
+    function addComment(newComment){
+        setComments(currentComments => {
+            return [newComment, ...currentComments]
+        })
+    }
 
     useEffect(()=>{
         setIsLoading(true);
@@ -53,21 +46,11 @@ export default function fetchComments(){
             <CommentCard author = {comment.author} body = {comment.body}/>
         </li>);
 
-
-    return    (   
+    return  (   
         <div id="comments_list">
-            <div class = "comment-header">
-            <h3 >All comments for this article:</h3>
-            <button onClick={()=>{setNewComment(!newComment)}}> New Comment</button>
+            <div className = "comment-header">
             </div>
-            {newComment? 
-            <form class = "comment-form" id="new-comment-form">
-                <textarea placeholder="Username" class = "username-box" name= "username" id= "username-comment-box"/>
-                <textarea placeholder="Comment" class = "comment-box" name= "newcomment" id= "new-comment-box"/>
-                <button id="submit-comment" >Submit Comment</button>
-            </form> 
-            : null
-            }
+            <CommentForm article_id = {article_id} addComment={addComment}/>
             <ul>
             {commentsList}
             </ul>
