@@ -19,6 +19,11 @@ export default function fetchComments(){
         })
     }
 
+    function removeComment(id){
+        const filteredComments = comments.filter((comment) => comment.comment_id !== id);
+        setComments(filteredComments)
+    }
+
     useEffect(()=>{
         setIsLoading(true);
         getCommentsByArticleId(article_id).then((comments) => {
@@ -43,7 +48,7 @@ export default function fetchComments(){
 
     const commentsList = comments.map(comment=>
         <li key={comment.comment_id}>
-            <CommentCard author = {comment.author} body = {comment.body}/>
+            <CommentCard author = {comment.author} body = {comment.body} id={comment.comment_id} removeComment={removeComment} />
         </li>);
 
     return  (   

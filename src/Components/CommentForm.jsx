@@ -20,7 +20,6 @@ export default function CommentForm(props){
         postCommentByArticleId(id, username, newComment)
         .then((response) => {
             setIsLoading(false)
-            setUserName("")
             setNewComment("")
             if (response.returnedComment){
                 addComment(response.returnedComment)
@@ -42,9 +41,9 @@ export default function CommentForm(props){
     }
 
     if(isLoading){
-        return ( <>
+        return ( <div id="posting-box">
             Posting ... 
-            </>
+            </div >
         )
     }
 

@@ -5,6 +5,10 @@
   text-align: center; 
 }
 
+#delete-comment-button{
+  width: 200px;
+}
+
 .sticky-top{
   display: flex;
   flex-direction: column;
@@ -42,12 +46,12 @@
   flex-direction: row;
   text-align: left;
   padding: 1rem 4rem;
-  border: 1px solid rgb(219, 219, 219)
+  border: 1px solid rgb(219, 219, 219);
 }
 
 .article-card {
   padding: 1rem 4rem;
-  border: 40px solid black
+  border: 40px solid black;
 }
 
 
@@ -96,7 +100,7 @@
   margin-bottom: 10px;
   padding: 10px;
   padding-left: 20px;
-  height: 15000px;
+  height: 160px;
   font-size: large;
   resize: none;
 }
@@ -152,5 +156,10 @@ ul {
 #submit-comment{
 width: 200px;
 }
+
+#posting-box{
+  height: 160px;
+  background-color: grey;
+  }
 
 

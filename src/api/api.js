@@ -40,6 +40,19 @@ export function postCommentByArticleId(id, user, newComment) {
       return data;
     })
     .catch((err) => {
+      console.log(err)
       return err;
+    });
+}
+
+export function deleteCommentById(id) {
+  return api
+    .delete(`/comments/${id}`, { comment_id: id })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err)
+      return err
     });
 }
