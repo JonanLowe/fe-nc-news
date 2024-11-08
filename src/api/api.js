@@ -10,6 +10,13 @@ export function getAllArticles() {
   });
 }
 
+export function getAllTopics() {
+  return api.get("/topics").then(({ data }) => {
+    console.log(data);
+    return data.topics;
+  });
+}
+
 export function getSingleArticle(id) {
   return api.get(`/articles/${id}`).then(({ data }) => {
     return data.article;
@@ -40,7 +47,7 @@ export function postCommentByArticleId(id, user, newComment) {
       return data;
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       return err;
     });
 }
@@ -52,7 +59,23 @@ export function deleteCommentById(id) {
       return response;
     })
     .catch((err) => {
-      console.log(err)
-      return err
+      console.log(err);
+      return err;
+    });
+}
+
+export function getArticlesByTopicSlug(topic) {
+  return api
+    .get("/articles", {
+      params: {
+        topic: topic,
+      },
+    })
+    .then(({data}) => {
+    return data.articles;
+    })
+    .catch((err) => {
+      console.log(err);
+      return err;
     });
 }
