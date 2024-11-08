@@ -7,7 +7,9 @@ export default function ArticleCard(props){
             <Link to={`/articles/${id}`}>
             <p>{title}</p>
             </Link>
-            <p>{topic}</p>
+            <Link to={`/topics/${topic}`}>
+            <p>topic: {topic}</p>
+            </Link>
         </section>
     )
 

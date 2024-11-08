@@ -1,6 +1,6 @@
 #root {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1000px;
   margin: auto;
   text-align: center; 
 }
@@ -10,12 +10,12 @@
 }
 
 .sticky-top{
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
   margin-bottom: 20px;
-  z-index: 100;
+
 }
 
 .header{
