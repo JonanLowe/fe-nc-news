@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
-import { getAllArticles } from "../api/api.js"
+import { getArticlesAndSort } from "../api/api.js"
 import ArticleCard from "./ArticleCard.jsx";
 
 export default function Articles(){
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+
     useEffect(()=>{
         setIsLoading(true);
-        getAllArticles().then((allArticles) => {
+        getArticlesAndSort().then((allArticles) => {
             setIsLoading(false);
             setArticles(allArticles)
         })

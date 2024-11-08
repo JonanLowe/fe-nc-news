@@ -10,10 +10,9 @@ export default function Articles(){
     useEffect(()=>{
         setIsLoading(true);
         getAllTopics().then((allTopics) => {
-            console.log(allTopics, "all topics")
             setIsLoading(false);
             setTopics(allTopics);
-        })
+        }).catch((err) => setIsError(true))
     }, [])
 
     const topicsList = topics.map(topic=>
@@ -21,11 +20,9 @@ export default function Articles(){
             <TopicCard slug={topic.slug} description={topic.description}/>
         </li>);
 
-if (isError) {
-    return <p>ERROR</p>;
-}
-
-
+    if (isError) {
+        return <p>ERROR</p>;
+    }
 
     if (isLoading) {
         return <p>loading all topics...</p>;

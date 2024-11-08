@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getArticlesByTopicSlug } from "../api/api.js"
+import { getArticlesAndSort } from "../api/api.js"
 import ArticleCard from "./ArticleCard.jsx";
 
 import {useParams} from 'react-router-dom';
@@ -7,7 +7,7 @@ import {useParams} from 'react-router-dom';
 export default function SingleTopic(){
 
     const {slug} = useParams();    
-    
+   
     const [articlesByTopic, setArticlesByTopic] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +16,7 @@ export default function SingleTopic(){
 
     useEffect(()=>{
         setIsLoading(true);
-        getArticlesByTopicSlug(slug).then((articles) => {
+        getArticlesAndSort(slug).then((articles) => {
             setIsLoading(false);
             setArticlesByTopic(articles);
         })
