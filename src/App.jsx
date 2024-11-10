@@ -7,7 +7,7 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 
 import Home from './Components/Home'
-import Articles from './Components/Articles'
+import Articles from './Components/Articles.jsx'
 import Topics from './Components/Topics.jsx'
 import SingleArticle from './Components/SingleArticle'
 import SingleTopic from './Components/SingleTopic.jsx';
@@ -21,20 +21,22 @@ function App() {
   
   return (
     <UserContext.Provider value ={{ user, setUser}}>
-      <main>
+    <main >
         <div className = "sticky-top">
           <Header/>
           <Nav/>
         </div>
+      <section className = "content">
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/articles" element={<Articles/>}/>
+        <Route path="/articles" element={<Articles topic_slug={null}/>}/>
         <Route path="/topics" element={<Topics/>}/>
-        <Route path="/topics/:slug" element={<SingleTopic/>}/>
+        <Route path="/topics/:topic_slug" element={<SingleTopic/>}/>
         <Route path="/articles/:article_id" element={<SingleArticle/>}/>
-        
+
       </Routes>
+      </section>
     </main>
   </UserContext.Provider>
     
