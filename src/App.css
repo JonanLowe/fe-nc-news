@@ -56,7 +56,7 @@
   display: flex;
   padding: 0.5rem 4rem;
   justify-content: center;
-  border: 1px solid black;
+  border: 10px solid rgb(160, 0, 0);
 }
 
 .list-container{
@@ -64,16 +64,12 @@
   height:100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
 .list-container > * {
-  border: 10px solid rgb(255, 255, 255);
-  border-radius: 5px;
-  margin: 10px;
-  flex: 1 1 30%;
-  border: 1px solid black;
+  
+  margin: 5px;
 }
 
 .article-card {
@@ -81,7 +77,8 @@
   display: flex;
   flex-direction: column;
   width: 800px;
-  border: 1px solid black;
+  border-top: 2px solid rgb(190, 190, 190);
+  border-bottom: 2px solid rgb(196, 196, 196);
 }
 
 #ac-top{
@@ -89,25 +86,43 @@
   flex-direction: row;
 }
 
-#ac-top-left{
+#ac-main{
 display: flex;
+flex-direction: row;
 align-content: center;
 align-items: center;
 }
 
-#ac-top-right{
+#ac-img{
   display: flex;
-  padding-inline: 2%;
+  vertical-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#ac-right{
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
 }
 
-#ac-bottom{
-  background-color: #ffc1c1;
+#ac-right-top{
+  padding-inline: 15px;
+}
+
+
+#ac-right-bottom{
+  
   display:flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between; 
+  padding-inline:15px;
+  font-size: small;
+}
+
+#article-title{
+  font-size: large;
 }
 
 #card-link{
@@ -127,7 +142,7 @@ align-items: center;
 .single-article{
   padding-inline: 40px;
   padding: 1rem 4rem;
-  border: 1px solid black;
+  border: 15px solid rgb(151, 151, 151);
 }
 
 .comment-header{

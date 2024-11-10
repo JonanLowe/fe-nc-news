@@ -16,25 +16,26 @@ export default function ArticleCard(props){
 
     return (
         <section className="article-card">
-            <div id = "ac-top">
-
-                      <div id = "ac-top-left">
+            <div id = "ac-main">
+                      <div id = "ac-img">
                             <Link to={`/articles/${id}`}>
                             <img src={img_url} width="240vh"/>
                             </Link>
                     </div>
-                <div id = "ac-top-right">   
+            <div id = "ac-right">
+                <div id= "ac-right-top">
             <Link to={`/articles/${id}`}>
-                <p>{title}</p>
+                <p id= "article-title">{title}</p>
             </Link>
                 <Link to={`/topics/${topic}`}>
-                <p id="card-link">explore {topic} </p>
+                <p id="card-link"> {topic} </p>
                 </Link>
-            <div id = "ac-bottom">
-            <p>{author}</p>
-            <p>{displayDate}</p>
-            <p>{comment_count}</p>
-            <p>{vote_count}</p>
+            </div>
+            <div id = "ac-right-bottom">
+            <p>author: {author}</p>
+            <p>posdted: {displayDate}</p>
+            <p>comments: {comment_count}</p>
+            <p>votes: {vote_count}</p>
             </div>
                 </div>
             </div>
