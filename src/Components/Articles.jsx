@@ -2,15 +2,17 @@ import { useEffect, useState } from "react"
 import { getArticlesAndSort } from "../api/api.js"
 import ArticleCard from "./ArticleCard.jsx";
 import SortAndOrder from "./SortAndOrder.jsx";
+import { useSearchParams } from 'react-router-dom';
 
 
 export default function Articles(props){
     
+    const [searchParams, setSearchParams] = useSearchParams()
     const { topic_slug } = props;
   
     const [topic, setTopic] = useState(topic_slug);
-    const [sortBy, setSortBy] = useState("created_at")
-    const [orderBy, setOrderBy] = useState("asc")
+    const [sortBy, setSortBy] = useState(searchParams.get("sorted_by") || "created_at")
+    const [orderBy, setOrderBy] = useState(searchParams.get("order") || "asc")
 
     
     const [articles, setArticles] = useState([]);
@@ -21,6 +23,7 @@ export default function Articles(props){
         getArticlesAndSort(topic, sortBy, orderBy).then((articles) => {
             setIsLoading(false);
             setArticles(articles)
+            setSearchParams(`sorted_by=${sortBy}&order=${orderBy}`)
         })
     }, [topic, sortBy, orderBy])
     
