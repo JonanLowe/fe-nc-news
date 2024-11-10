@@ -46,6 +46,8 @@ export default function SingleArticle(){
             }
             })
     }
+
+    // check error handling here ??
   
     
     function UpvoteButton(){
@@ -71,20 +73,27 @@ export default function SingleArticle(){
     return    (   
         <>
         <div id="article-display" className = "single-article">
+
+                <div id = "article-properties">
                 <h3>{article.title}</h3>
-                <div className = "article-properties">
                     <p>Author: {article.author}</p>
                     <p>Topic: {article.topic}</p>
                 </div>
-                <div id="article-body" className = "article-body">
+
+                <img id = "article-header-image" src = {article.article_img_url}/>
+
+        </div>
+                <div id="article-body">
                     <p>{article.body}</p>
                 </div>
+
+
                 <div className = "vote-display">
                     <p className = "vote-text"> {isVoteError ? "Sorry - there is an error with voting, please refresh your page" :`VOTES: ${localVotes}`}</p>
                     <UpvoteButton/>
                     <DownvoteButton/>
                 </div>
-        </div>
+
         <div id="comments-list" className = "list-container">
             <div>
                 <Comments article_id={article_id}/>

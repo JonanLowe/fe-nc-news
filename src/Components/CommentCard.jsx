@@ -30,13 +30,17 @@ export default function CommentCard(props){
 
     return (
         <section className= "comment-card">
-            <div>
+            <div id="comment-info">
             <p><b>Author: {author} </b></p>
             <p>{body}</p>
             </div>
+
+            <div id="delete-comment-button-container">
+
             { author === user ? <button id="delete-comment-button" disabled = {isDeleting} onClick= {()=>{handleDelete(id)}}> {isDeleting ? "Deleting...." : "Delete Comment"} </button>
              : null
             }
+            </div>
         </section>
 
     )
