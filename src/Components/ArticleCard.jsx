@@ -15,32 +15,33 @@ export default function ArticleCard(props){
     const displayDate = `${date[2]}/${date[1]}/${date[0]}`
 
     return (
-        <Link to={`/articles/${id}`}>
-        <section className="article-card">
-            <div id = "ac-main">
-                      <div id = "ac-img-container">
-                            <img src={img_url} id="ac-img"/>
-                    </div>
+     <section className="article-card">
+        <div id = "ac-main">
+            <Link to={`/articles/${id}`}>
+            <div id = "ac-img-container">
+                <img src={img_url} id="ac-img"/>
+            </div>
+            </Link>
             <div id = "ac-right">
+            <Link to={`/articles/${id}`}>
                 <div id= "ac-right-top">
                 <p id= "article-title">{title}</p>
-                <Link to={`/topics/${topic}`}>
-                <p id="card-link">topic: {topic} </p>
-                </Link>
-            </div>
-            <div id = "ac-right-bottom">
+            <div id = "ac-right-info">
             <p>author: {author}</p>
             <p>posted: {displayDate}</p>
             <p>comments: {comment_count}</p>
             <p>votes: {vote_count}</p>
             </div>
-                </div>
             </div>
-
-
-
-        </section>
-                            </Link>
+            </Link>
+                <Link to={`/topics/${topic}`}>
+                <div id="ac-right-link">
+                <p id="card-link">topic: {topic} </p>
+                </div>
+                </Link>
+            </div>
+        </div>
+    </section>
     )
 
 
