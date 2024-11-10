@@ -4,15 +4,26 @@ const api = axios.create({
   baseURL: "https://nc-news-c2tj.onrender.com/api/",
 });
 
-export function getAllArticles() {
-  return api.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export function getArticlesAndSort(topic, sortBy, orderBy) {
+  return api
+    .get("/articles", {
+      params: {
+        topic: topic,
+        sort_by: sortBy,
+        order: orderBy,
+      },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    })
+    .catch((err) => {
+      console.log(err);
+      return err;
+    });
 }
 
 export function getAllTopics() {
   return api.get("/topics").then(({ data }) => {
-    console.log(data);
     return data.topics;
   });
 }
@@ -57,22 +68,6 @@ export function deleteCommentById(id) {
     .delete(`/comments/${id}`, { comment_id: id })
     .then((response) => {
       return response;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err;
-    });
-}
-
-export function getArticlesByTopicSlug(topic) {
-  return api
-    .get("/articles", {
-      params: {
-        topic: topic,
-      },
-    })
-    .then(({data}) => {
-    return data.articles;
     })
     .catch((err) => {
       console.log(err);
