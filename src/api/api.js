@@ -15,10 +15,6 @@ export function getArticlesAndSort(topic, sortBy, orderBy) {
     })
     .then(({ data }) => {
       return data.articles;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err;
     });
 }
 
@@ -41,14 +37,9 @@ export function getCommentsByArticleId(id) {
 }
 
 export function patchVoteCount(id, vote) {
-  return api
-    .patch(`/articles/${id}/`, { inc_votes: vote })
-    .then(({ data }) => {
-      return data.article;
-    })
-    .catch((err) => {
-      return err;
-    });
+  return api.patch(`/articles/${id}/`, { inc_votes: vote }).then(({ data }) => {
+    return data.article.votes;
+  });
 }
 
 export function postCommentByArticleId(id, user, newComment) {
@@ -56,21 +47,9 @@ export function postCommentByArticleId(id, user, newComment) {
     .post(`/articles/${id}/comments`, { username: user, comment: newComment })
     .then(({ data }) => {
       return data;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err;
     });
 }
 
 export function deleteCommentById(id) {
-  return api
-    .delete(`/comments/${id}`, { comment_id: id })
-    .then((response) => {
-      return response;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err;
-    });
+  return api.delete(`/comments/${id}`, { comment_id: id });
 }

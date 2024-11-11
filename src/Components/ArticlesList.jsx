@@ -8,6 +8,8 @@ export default function ArticlesList(props){
 
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState(null);
     
     useEffect(()=>{
         setIsLoading(true);
@@ -16,10 +18,11 @@ export default function ArticlesList(props){
             setArticles(articles)   
             setSearchParams(`sorted_by=${sortBy}&order=${orderBy}`)    
         })
-        .catch((err) => {console.log(err)})
+        .catch((err) => {
+            setIsError(true)
+            setErrorMsg(err.message)})
     }, [topic_slug, sortBy, orderBy])
 
-    
     const articlesList = articles.map(article=>
         <li key = {article.article_id}>
             <ArticleCard 
@@ -34,12 +37,16 @@ export default function ArticlesList(props){
             />
         </li>); 
 
+    if (isError) {
+        return <p>{errorMsg}</p>;
+    }
+
     if (isLoading) {
         return <p>loading all articles...</p>;
     }
 
     return    (   
-        <section id="all_articles_list">
+        <section id="all-articles-list">
             <ul className = "list-container" >
             {articlesList}
             </ul>

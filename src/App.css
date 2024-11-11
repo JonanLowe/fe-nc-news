@@ -56,13 +56,10 @@
 
 .welcome-page{
   display: flex;
-  padding: 0.5rem 4rem;
   justify-content: center;
 }
 
 .list-container{
-  width: 100%;
-  height:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +76,6 @@
   width: 800px;
   border-top: 2px solid rgb(190, 190, 190);
   border-bottom: 2px solid rgb(196, 196, 196);
-  margin:5px;
 }
 
 .article-card {
@@ -87,18 +83,10 @@
   width: 800px;
   border-top: 1px solid rgb(190, 190, 190);
   border-bottom: 1px solid rgb(196, 196, 196);
-  margin:5px;
-}
-
-
-#ac-img-container {
-  display: flex;
-  align-items: centre;
 }
 
 #ac-img {
   max-width: 200px;
-  
 }
 
 #ac-main{
@@ -129,7 +117,6 @@ align-items: center;
   padding-inline: 15px;
 }
 
-
 #ac-right-info{
   display:flex;
   flex-direction: row;
@@ -137,35 +124,28 @@ align-items: center;
   font-size: x-small;
 }
 
-
 #ac-right-link{
   display:flex;
   flex-direction: row;
-  font-size: x-small;
+  /* background-color: #ffc1c1; */
+  font-size:x-small;
+  padding-inline: 15px;
 }
 
 #article-title{
   font-size: large;
 }
 
-#card-link{
-  font-size:x-small;
-}
-
-
-
-
 .comment-card {
+  width: 800px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   text-align: left;
   padding-inline: 10px;
   border-top: 1px solid rgb(219, 219, 219);
   border-bottom: 1px solid rgb(219, 219, 219);
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 #comment-info{
@@ -183,7 +163,7 @@ align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding-inline: 180px;
+  padding-inline: 140px;
 }
 
 #article-properties{
@@ -194,6 +174,7 @@ align-items: center;
 
 #article-header-image{
   max-height: 160px;
+  padding-left: 30px;
 }
 
 .comment-header{
@@ -266,8 +247,15 @@ align-items: center;
 
 .vote-button{
   margin-left: 10px;
-  text-align: center;
-  font-size: small;
+  display: flex;
+  align-content: center;
+}
+
+.vote-button-clicked{
+  margin-left: 10px;
+  display: flex;
+  align-content: center;
+  border: 2px solid black;
 }
 
 .article-link {
@@ -315,3 +303,6 @@ justify-content: space-between;
 padding-inline: 5px;
 }
 
+.react-icons {
+  vertical-align: middle;
+}

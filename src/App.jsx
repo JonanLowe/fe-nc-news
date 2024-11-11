@@ -10,7 +10,8 @@ import Home from './Components/Home'
 import Topics from './Components/Topics.jsx'
 import SingleArticle from './Components/SingleArticle'
 import SingleTopic from './Components/SingleTopic.jsx';
-import ArticlePage from './Components/ArticlePage.jsx';
+import ArticlePage from './Components/ArticlesPage.jsx';
+import ErrorPage from './Components/ErrorPage.jsx'
 
 import UserContext from "./contexts/userContext.js";
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/topics" element={<Topics/>}/>
         <Route path="/topics/:topic_slug" element={<SingleTopic/>}/>
         <Route path="/articles/:article_id" element={<SingleArticle/>}/>
+        <Route path="/*" element={<ErrorPage/>}/>
 
       </Routes>
       </section>
