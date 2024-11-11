@@ -53,7 +53,7 @@ export default function ArticlesList(props){
     return    (   
         <section id="all-articles-list">
             <ul className = "list-container" >
-            <p>This visit's random article:</p>
+            <p>A random article from our selection:</p>
             {createRandomArticleCard(articles, randomArticleNumber)}
             </ul>
         </section>     
