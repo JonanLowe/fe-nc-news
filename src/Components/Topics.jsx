@@ -29,9 +29,9 @@ export default function Articles(){
     }
 
     return    (   
-        <div className = "list-container" >
+        <div >
             <h2>All topics:</h2>
-            <ul>
+            <ul className = "list-container" >
             {topicsList}
             </ul>
         </div>

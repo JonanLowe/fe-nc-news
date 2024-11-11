@@ -52,11 +52,9 @@ export default function fetchComments(){
         </li>);
 
     return  (   
-        <div id="comments_list">
-            <div className = "comment-header">
-            </div>
+        <div>
             <CommentForm article_id = {article_id} addComment={addComment}/>
-            <ul>
+            <ul className = "list-container" >
             {commentsList}
             </ul>
         </div>

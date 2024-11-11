@@ -18,9 +18,7 @@ export default function ArticleCard(props){
      <section className="article-card">
         <div id = "ac-main">
             <Link to={`/articles/${id}`}>
-            <div id = "ac-img-container">
                 <img src={img_url} id="ac-img"/>
-            </div>
             </Link>
             <div id = "ac-right">
             <Link to={`/articles/${id}`}>
@@ -36,7 +34,7 @@ export default function ArticleCard(props){
             </Link>
                 <Link to={`/topics/${topic}`}>
                 <div id="ac-right-link">
-                <p id="card-link">topic: {topic} </p>
+                <p>topic: {topic} </p>
                 </div>
                 </Link>
             </div>

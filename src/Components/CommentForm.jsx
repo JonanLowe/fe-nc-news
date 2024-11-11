@@ -11,45 +11,34 @@ export default function CommentForm(props){
     
     const [userName, setUserName] = useState(user);
     const [newComment, setNewComment] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+    const [isPosting, setIsPosting] = useState(false);
     const [isError, setIsError] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
 
     function handleNewComment(id, username, newComment){
-        setIsLoading(true)
+        setIsPosting(true)
         postCommentByArticleId(id, username, newComment)
         .then((response) => {
-            setIsLoading(false)
+            setIsPosting(false)
             setNewComment("")
-            if (response.returnedComment){
-                addComment(response.returnedComment)
-            }
-            if(response.message){
-                setErrorMessage(response.response.data.msg)
+            addComment(response.returnedComment)
+            }).catch((err)=> {
+                setErrorMessage(err.message)
                 setIsError(true)
-            }
-        })
-    }
+            })          
+        }
 
     if(isError){
         return ( <>
           <p>There was an Error posting your comment at this time </p>
-          <p>{errorMessage} </p>
           <p>Please refresh your page and try again</p>
           </>
       )
     }
 
-    if(isLoading){
-        return ( <div id="posting-box">
-            Posting ... 
-            </div >
-        )
-    }
-
     return (
     <section className = "comment-form" id= "new-comment-form">
-        <textarea
+        <textarea disabled = {isPosting}
             id= "new-comment-box"
             className = "comment-box"
             placeholder={`Comment as ${user}`}
@@ -58,7 +47,7 @@ export default function CommentForm(props){
         />
         <div id = "comment-submit-section">
         <h3>All comments for this article:</h3>
-        <button id="submit-comment" disabled = {newComment.length <1} onClick={() => {handleNewComment(article_id, userName, newComment)}}> Submit Comment </button>
+        <button id="submit-comment" disabled = {newComment.length <1} onClick={() => {handleNewComment(article_id, userName, newComment)}}> {isPosting? "Posting..." : "Submit Comment" }</button>
         </div>
     </section> 
     )

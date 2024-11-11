@@ -1,6 +1,5 @@
 export default function SortAndOrder({setSortBy, setOrderBy, sortBy, orderBy}){
 
-//need to make buttons to do the sorting functionality - change state by drop-down//
 const handleSortBy = (e) => {
    setSortBy(e.target.value)
 }
@@ -8,7 +7,6 @@ const handleSortBy = (e) => {
 const handleOrderBy = (e) => {
     setOrderBy(e.target.value)
 }
-
 
 const sortByOptions = [
     { label: 'Date', value: "created_at" },   
@@ -45,5 +43,4 @@ return (
 </section>
 
 )
-
 }

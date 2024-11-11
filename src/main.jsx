@@ -8,8 +8,8 @@ import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-      <StrictMode>
+      {/* <StrictMode> */}
           <App />
-      </StrictMode>
+      {/* </StrictMode> */}
   </BrowserRouter>
 )
