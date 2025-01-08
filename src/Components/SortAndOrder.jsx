@@ -28,7 +28,6 @@ const orderByList = orderByOptions.map(option=>
 )
 
 return (
-
 <section id="dropdowns">
 <label>sort by: &nbsp;
     <select onChange={handleSortBy} value ={sortBy}>
@@ -41,6 +40,5 @@ return (
     </select>
 </label>
 </section>
-
 )
 }
