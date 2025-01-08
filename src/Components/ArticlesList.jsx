@@ -20,7 +20,7 @@ export default function ArticlesList(props){
         })
         .catch((err) => {
             setIsError(true)
-            setErrorMsg(err.message)})
+            setErrorMsg(`Sorry - we don't have any articles on ${topic_slug}, use 'Browse Topics' to see a list of available options`)})
     }, [topic_slug, sortBy, orderBy])
 
     const articlesList = articles.map(article=>
@@ -42,7 +42,7 @@ export default function ArticlesList(props){
     }
 
     if (isLoading) {
-        return <p>loading all articles...</p>;
+        return <p>{`loading all articles on ${topic_slug}...`}</p>;
     }
 
     return    (   

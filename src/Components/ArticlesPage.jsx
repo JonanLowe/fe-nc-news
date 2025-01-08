@@ -4,8 +4,7 @@ import ArticlesList from "./ArticlesList.jsx"
 import SortAndOrder from "./SortAndOrder.jsx";
 import { useSearchParams } from 'react-router-dom';
 
-
-export default function ArticlePage(props){
+export default function ArticlesPage(props){
 
     const { topic_slug } = props;
     
