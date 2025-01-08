@@ -23,10 +23,10 @@ function App() {
   return (
     <UserContext.Provider value ={{ user, setUser}}>
     <main >
-        <div className = "sticky-top">
+        <section className = "top">
           <Header/>
           <Nav/>
-        </div>
+        </section>
       <section className = "content">
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -36,12 +36,10 @@ function App() {
         <Route path="/topics/:topic_slug" element={<SingleTopic/>}/>
         <Route path="/articles/:article_id" element={<SingleArticle/>}/>
         <Route path="/*" element={<ErrorPage/>}/>
-
       </Routes>
       </section>
     </main>
   </UserContext.Provider>
-    
   )
 }
 
