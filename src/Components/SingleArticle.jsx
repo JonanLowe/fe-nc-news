@@ -7,19 +7,15 @@ import { BsHandThumbsUpFill } from "react-icons/bs";
 import { BsHandThumbsDown } from "react-icons/bs";
 import { BsHandThumbsDownFill } from "react-icons/bs";
 
-
 import Comments from './Comments.jsx'
 
 import {useParams} from 'react-router-dom';
 
 export default function SingleArticle(){
 
-    const {article_id} = useParams();    
-    
+    const {article_id} = useParams();       
     const [article, setArticle] = useState({});
     const [localVotes, setLocalVotes] = useState(0);
-
-
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     const [isVoteError, setIsVoteError] = useState(false);
@@ -36,7 +32,7 @@ export default function SingleArticle(){
         })
         .catch((err)=>{
             setIsError(true)
-            setErrorMsg(err.message)
+            setErrorMsg(`Article not found`)
         })
     }, [article_id])
 
@@ -49,7 +45,6 @@ export default function SingleArticle(){
             {setLocalVotes(article.votes)
             setIsVoteError(true)
             })
-    
     }
 
     function UpvoteButton(){
@@ -83,31 +78,28 @@ export default function SingleArticle(){
     return    (   
         <>
         <div id="article-display" className = "single-article">
-
-                <div id = "article-properties">
+            <div id = "article-properties">
                 <h3>{article.title}</h3>
                     <p>Author: {article.author}</p>
                     <p>Topic: {article.topic}</p>
                 </div>
-
                 <img id = "article-header-image" src = {article.article_img_url}/>
         </div>
-        
-                <div id="article-body">
-                    <p>{article.body}</p>
-                </div>
 
-                <div className = "vote-display">
-                    <p className = "vote-text"> {isVoteError ? "Sorry - there is an error with voting, please refresh your page" :`VOTES: ${localVotes}`}</p>
-                    {hasUpvoted?  <CancelUpvoteButton/> : <UpvoteButton/> }
-                    {hasDownvoted?  <CancelDownvoteButton/> : <DownvoteButton/> }
-                </div>
+        <div id="article-body">
+            <p>{article.body}</p>
+        </div>
+
+            <div className = "vote-display">
+                <p className = "vote-text"> {isVoteError ? "Sorry - there is an error with voting, please refresh your page" :`VOTES: ${localVotes}`}</p>
+                {hasUpvoted?  <CancelUpvoteButton/> : <UpvoteButton/> }
+                {hasDownvoted?  <CancelDownvoteButton/> : <DownvoteButton/> }
+            </div>
 
         <div>
             <Comments article_id={article_id}/>
         </div>
-     </>
-    
+     </> 
     )
 }
 
