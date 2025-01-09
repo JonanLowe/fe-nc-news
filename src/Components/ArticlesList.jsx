@@ -42,7 +42,7 @@ export default function ArticlesList(props){
     }
 
     if (isLoading) {
-        return <p>{`loading all articles on ${topic_slug}...`}</p>;
+        return <p>{`loading articles...`}</p>;
     }
 
     return    (   

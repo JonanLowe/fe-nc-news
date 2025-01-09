@@ -34,7 +34,6 @@ export default function ArticlesPage(props){
     topic_slug={topic_slug}
     />
     </section>
-
 </>
 )
 }
