@@ -65,7 +65,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a {
-    color: #000000;
+    color: 202020;
     text-decoration: inherit;
   }
   a:hover {
@@ -79,7 +79,7 @@ button:focus-visible {
 @media (prefers-color-scheme: dark) {
   :root {
     color: #ffffff;
-    background-color: #181818;
+    background-color: #202020;
   }
   a {
     color: #ffffff;
@@ -181,8 +181,7 @@ button:focus-visible {
 #ac-main{
 display: flex;
 flex-direction: row;
-align-content: center;
-align-items: center;
+align-items: center
 }
 
 #ac-img{
@@ -195,15 +194,13 @@ align-items: center;
 #ac-right{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   width: 100%;
 }
 
 #ac-right-top{
   display: flex;
   flex-direction: column;
-  align-items: space-evenly;
-  padding-inline: 15px;
+  padding-inline: 15px; 
 }
 
 #ac-right-info{
@@ -214,8 +211,6 @@ align-items: center;
 }
 
 #ac-right-link{
-  display:flex;
-  flex-direction: row;
   font-size:x-small;
   padding-inline: 15px;
 }

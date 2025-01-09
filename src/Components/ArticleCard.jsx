@@ -21,22 +21,22 @@ export default function ArticleCard(props){
                 <img src={img_url} id="ac-img"/>
             </Link>
             <div id = "ac-right">
-            <Link to={`/articles/${id}`}>
-                <div id= "ac-right-top">
+              <Link to={`/articles/${id}`}>
+              <div id= "ac-right-top">
                 <p id= "article-title">{title}</p>
-            <div id = "ac-right-info">
-            <p>author: {author}</p>
-            <p>posted: {displayDate}</p>
-            <p>comments: {comment_count}</p>
-            <p>votes: {vote_count}</p>
-            </div>
-            </div>
-            </Link>
-                <Link to={`/topics/${topic}`}>
-                <div id="ac-right-link">
-                <p>topic: {topic} </p>
+                <div id = "ac-right-info">
+                  <p>author: {author}</p>
+                  <p>posted: {displayDate}</p>
+                  <p>comments: {comment_count}</p>
+                  <p>votes: {vote_count}</p>
                 </div>
-                </Link>
+              </div>
+              </Link>
+              <Link to={`/topics/${topic}`}>
+              <div id="ac-right-link">
+                <p>topic: {topic} </p>
+              </div>
+              </Link>
             </div>
         </div>
     </section>
