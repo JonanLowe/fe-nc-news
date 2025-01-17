@@ -5,7 +5,6 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
   
   color-scheme: light dark;
@@ -136,7 +135,6 @@ button:focus-visible {
   color: #560000;
 }
 
-
 .content{
   max-width: 1000px;
   margin: auto;
@@ -163,42 +161,34 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   width: 800px;
-  border-top: 2px solid rgb(190, 190, 190);
-  border-bottom: 2px solid rgb(196, 196, 196);
-}
-
-.article-card {
-  text-align: left;
-  width: 800px;
   border-top: 1px solid rgb(190, 190, 190);
   border-bottom: 1px solid rgb(196, 196, 196);
 }
 
-#ac-img {
-  width: 180px;
+.article-card {
+  width: 800px;
+  border-top: 1px solid rgb(190, 190, 190);
+  border-bottom: 1px solid rgb(196, 196, 196);
+  line-height: 10px;
 }
 
 #ac-main{
-display: flex;
-flex-direction: row;
-align-items: center
+  display: flex;
+  flex-direction: row;
+  align-items: center
 }
 
-#ac-img{
-  display: flex;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  max-height: 140px;
+#ac-img {
+  width: 180px;
+  max-height: 130px;
 }
 
 #ac-right{
-  display: flex;
-  flex-direction: column;
+  text-align: left;
   width: 100%;
 }
 
 #ac-right-top{
-  display: flex;
   flex-direction: column;
   padding-inline: 15px; 
 }
@@ -213,10 +203,11 @@ align-items: center
 #ac-right-link{
   font-size:x-small;
   padding-inline: 15px;
+  padding-bottom: 5px;
 }
 
 #article-title{
-  font-size: large;
+  font-size: medium;
 }
 
 .comment-card {

@@ -17,9 +17,11 @@ export default function ArticleCard(props){
     return (
      <section className="article-card">
         <div id = "ac-main">
+            <div id = "link-image-container">
             <Link to={`/articles/${id}`}>
                 <img src={img_url} id="ac-img"/>
             </Link>
+            </div>
             <div id = "ac-right">
               <Link to={`/articles/${id}`}>
               <div id= "ac-right-top">
