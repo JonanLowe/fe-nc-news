@@ -25,7 +25,12 @@ export default function Articles(){
     }
 
     if (isLoading) {
-        return <p>loading all topics...</p>;
+        return <>
+        <p>loading topics...</p>
+        <p>Please note that on the first visit this may take up to 1 minute.</p>
+        <p>This is a portfolio project created as part of Northcoders bootcamp.</p>
+        <p>The back end is hosted via free licenses on Supabase and Render, and winds down between uses.</p>
+        </>
     }
 
     return    (   
