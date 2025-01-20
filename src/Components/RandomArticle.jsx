@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getArticlesAndSort } from "../api/api.js"
 import ArticleCard from "./ArticleCard.jsx";
+import LoadingMessage from "./LoadingMessage.jsx"
 
 export default function ArticlesList(props){
     
@@ -49,9 +50,7 @@ export default function ArticlesList(props){
     if (isLoading) {
         return <>
         <p>loading articles...</p>
-        <p>Please note that on the first visit this may take up to 1 minute.</p>
-        <p>This is a portfolio project created as part of Northcoders bootcamp.</p>
-        <p>The back end is hosted via free licenses on Supabase and Render, and winds down between uses.</p>
+        <LoadingMessage/>
         </>
     }
 
