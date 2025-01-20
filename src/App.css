@@ -169,7 +169,7 @@ button:focus-visible {
   width: 800px;
   border-top: 1px solid rgb(190, 190, 190);
   border-bottom: 1px solid rgb(196, 196, 196);
-  line-height: 10px;
+  line-height: 110%;
 }
 
 @keyframes fadeIn {
